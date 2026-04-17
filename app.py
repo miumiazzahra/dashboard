@@ -13,3 +13,6 @@ if menu == "Home":
 elif menu == "Halaman Data":
     judul()
     show_data()
+
+st.markdown("---")
+st.caption("© Umi Qusnul AG - 184240024")
