@@ -8,18 +8,27 @@ def judul():
 
 st.sidebar.title("Navigasi")
 menu = st.sidebar.radio("Pilih Halaman", ["Home", "Halaman Data"])
+
 if menu == "Home":
     judul()
-    year = select_year()
     df = load_data()
-    df_filtered = filter_data(df, year)
+    year = select_year()
+    location = select_location(df)
+    df_filtered = filter_data(df, year, location)
+
     kolom(df_filtered)
     pie_chart1(df_filtered)
+    bar_chart1(df_filtered)
+    bar_chart2(df_filtered)
+    map_chart(df_filtered, year)
+
 elif menu == "Halaman Data":
     judul()
-    year = select_year()
     df = load_data()
-    df_filtered = filter_data(df, year)
+    year = select_year()
+    location = select_location(df)
+    df_filtered = filter_data(df, year, location)
+
     show_data(df_filtered)
 
 st.markdown("---")
